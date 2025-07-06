@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    color: #ff69b4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 1.2em;
+}
+
+.product-option {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    overflow: hidden; /* Ensure content doesn't overflow when collapsed */
+}
+
+.product-option.expanded {
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.product-option.most-popular {
+    border-color: #ff69b4;
+}
+
+.product-option.most-popular::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff69b4;
+    color: white;
+    padding: 3px 10px;
+    border-bottom-left-radius: 8px;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+.option-summary {
+    display: flex;
+    align-items: center;
+}
+
+.option-summary input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2); /* Make radio button slightly larger */
+    accent-color: #ff69b4; /* Change radio button color */
+}
+
+.option-summary label {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.option-summary .units {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.option-summary .discount {
+    background-color: #ff69b4;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-right: auto; /* Pushes price-info to the right */
+}
+
+.option-summary .price-info {
+    text-align: right;
+}
+
+.option-summary .current-price {
+    font-weight: bold;
+    color: #333;
+    display: block; /* Ensures it takes full width */
+}
+
+.option-summary .original-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 0.8em;
+    display: block; /* Ensures it takes full width */
+}
+
+.option-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 200px; /* Adjust as needed for content */
+    opacity: 1;
+    overflow: hidden;
+}
+
+.option-details.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+}
+
+.selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.selector-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-number {
+    font-weight: bold;
+    width: 25px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.selector-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+}
+
+.selector-group label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.selector-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20197.8L154.2%2065c-4.4-4.4-11.6-4.4-16%200L5.4%20197.8c-4.4%204.4-4.4%2011.6%200%2016l16%2016c4.4%204.4%2011.6%204.4%2016%200l104.2-104.2L255%20229.8c4.4%204.4%2011.6%204.4%2016%200l16-16c4.4-4.4%204.4-11.6%200-16z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+
+.delivery-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.delivery-info .total-price {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.add-to-cart-button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #e05c9f;
+}
+
+.add-to-cart-button .plus-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.powered-by {
+    text-align: center; 
+    margin-top: 20px;
+    font-size: 0.8em; 
+    color: #aaa;
+    text-align: right; 
+    font-size: 0.7em;   
+    margin-top: 15px;  
+}
+
+.option-summary {
+    display: flex;
+    align-items: center;
+    
+}
+
+.option-summary input[type="radio"] {
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none; 
+    margin: 0;
+    padding: 0;
+    width: 0; 
+    height: 0; 
+    position: absolute; 
+    opacity: 0;
+    cursor: pointer; 
+}
+
+
+.custom-radio-circle {
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #ccc; 
+    border-radius: 50%; 
+    display: inline-block;
+    position: relative; 
+    margin-right: 15px; 
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0; 
+}
+
+
+.option-summary input[type="radio"]:checked + .custom-radio-circle {
+    border-color: #ff69b4; 
+    background-color: white; 
+}
+
+.option-summary input[type="radio"]:checked + .custom-radio-circle::after {
+    content: '';
+    width: 10px; 
+    height: 10px; 
+    background-color: #ff69b4; 
+    border-radius: 50%; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: block;
+}
+
+
+.option-summary input[type="radio"]:focus + .custom-radio-circle {
+    outline: 2px solid #ff69b4; 
+    outline-offset: 2px;
+}
+
+
+
